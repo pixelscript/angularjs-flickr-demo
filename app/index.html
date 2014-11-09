@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My Flickr App</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.css' rel='stylesheet' type='text/css'>
+    <link href='//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+    <link href='css/main.css' rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="FlickrApp" ng-controller="SearchCtrl">
+    <div class="icon-bar two-up">
+        <a class="item" href="#/grid">
+            <i class="fi-thumbnails"></i>
+            <label>Grid</label>
+        </a>
+        <a class="item" href="#/list">
+            <i class="fi-list"></i>
+            <label>List</label>
+        </a>
+    </div>
+    <form ng-submit="search()">
+        <fieldset>
+            <legend>Search</legend>
+            <div class="row">
+                <div class="small-12 columns">
+                    <label>
+                        <div class="row collapse">
+                            <div class="small-10 columns">
+                                <input type="text" ng-model="query" ng-keypress="($event.which === 13)?getResults():0"/>
+                            </div>
+                            <div class="small-2 columns">
+                                <button ng-click="search()" class="button postfix">Go</button>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div ng-view>
+    </div>
+
+
+    <script src="bower_components/angular/angular.js" type="application/javascript"></script>
+    <script src="bower_components/angular-resource/angular-resource.js" type="application/javascript"></script>
+    <script src="bower_components/angular-route/angular-route.js" type="application/javascript"></script>
+    <script src="src/main.js" type="application/javascript"></script>
+    <script src="src/search/flickrFactory.js" type="application/javascript"></script>
+    <script src="src/search/searchControl.js" type="application/javascript"></script>
+</body>
+</html>

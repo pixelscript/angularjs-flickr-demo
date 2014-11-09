@@ -1,0 +1,13 @@
+<div class="list">
+    <div class="list-item"  ng-repeat="item in flickrSearch.items">
+        <div class="preview th" ng-style="{'background-image': 'url(' + item.media.m + ')'}">
+
+        </div>
+        <div class="deets">
+            <h2>{{item.title}}</h2>
+            <p>{{processTags(item.tags)}}</p>
+            <p ng-bind="item.date_taken | date:'dd/MM/yyyy HH:mm'"></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
