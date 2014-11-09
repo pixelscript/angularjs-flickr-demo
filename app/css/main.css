@@ -62,6 +62,13 @@
     margin-left:250px;
 
 }
+.date {
+    margin-top:10px;
+    color:#999;
+}
+.label {
+    cursor:pointer;
+}
 .clear {
     clear:left;
 }

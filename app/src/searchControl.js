@@ -8,8 +8,9 @@ angular.module('FlickrApp').controller('SearchCtrl', ['$scope', '$sce','flickrPh
     $scope.openImage = function(item){
         window.open(item.link);
     };
-    $scope.processTags = function(tags) {
-        return tags.split(' ').join(', ');
-    };
+    $scope.setQuery = function(val) {
+        $scope.query = val;
+        $scope.search();
+    }
 
 }]);

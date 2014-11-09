@@ -5,8 +5,8 @@
         </div>
         <div class="deets">
             <h2>{{item.title}}</h2>
-            <p>{{processTags(item.tags)}}</p>
-            <p ng-bind="item.date_taken | date:'dd/MM/yyyy HH:mm'"></p>
+            <div class="tags" tags="{{item.tags}}"></div>
+            <p class="date" ng-bind="item.date_taken | date:'dd/MM/yyyy HH:mm'"></p>
         </div>
         <div class="clear"></div>
     </div>
