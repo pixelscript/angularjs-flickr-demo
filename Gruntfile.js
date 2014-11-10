@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
     watch: {
         app: {
-            files: ['app/**/*','Gruntfile.js']
+            files: ['basics/**/*','app/**/*','Gruntfile.js']
         },
         options: {
             livereload: true
