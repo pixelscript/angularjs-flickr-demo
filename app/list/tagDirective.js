@@ -1,4 +1,4 @@
-angular.module('FlickrApp').directive('tags', ['$compile', function($compile) {
+angular.module('flickrApp').directive('tags', ['$compile', function($compile) {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {

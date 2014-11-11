@@ -8,7 +8,7 @@
     <link href='//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
     <link href='css/main.css' rel='stylesheet' type='text/css'>
 </head>
-<body ng-app="FlickrApp" ng-controller="SearchCtrl">
+<body ng-app="flickrApp">
     <div class="icon-bar two-up">
         <a class="item" href="#/grid">
             <i class="fi-thumbnails"></i>
@@ -19,35 +19,38 @@
             <label>List</label>
         </a>
     </div>
-    <form ng-submit="search()">
-        <fieldset>
-            <legend>Search</legend>
-            <div class="row">
-                <div class="small-12 columns">
-                    <label>
-                        <div class="row collapse">
-                            <div class="small-10 columns">
-                                <input type="text" ng-model="query" ng-keypress="($event.which === 13)?getResults():0"/>
+    <div class="search" ng-controller="SearchCtrl">
+        <form ng-submit="search()">
+            <fieldset>
+                <legend>Search</legend>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <label>
+                            <div class="row collapse">
+                                <div class="small-10 columns">
+                                    <input type="text" ng-model="query" ng-keypress="($event.which === 13)?getResults():0"/>
+                                </div>
+                                <div class="small-2 columns">
+                                    <button ng-click="search()" class="button postfix">Go</button>
+                                </div>
                             </div>
-                            <div class="small-2 columns">
-                                <button ng-click="search()" class="button postfix">Go</button>
-                            </div>
-                        </div>
-                    </label>
+                        </label>
+                    </div>
                 </div>
-            </div>
-        </fieldset>
-    </form>
-    <div ng-view>
+            </fieldset>
+        </form>
+        <div ng-view>
+        </div>
     </div>
-
-
     <script type="application/javascript" src="bower_components/angular/angular.js"></script>
     <script type="application/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
     <script type="application/javascript" src="bower_components/angular-route/angular-route.js"></script>
-    <script type="application/javascript" src="src/main.js"></script>
-    <script type="application/javascript" src="src/flickrFactory.js"></script>
-    <script type="application/javascript" src="src/searchControl.js"></script>
-    <script type="application/javascript" src="src/tagDirective.js"></script>
+    <script type="application/javascript" src="main.js"></script>
+    <script type="application/javascript" src="grid/GridCtrl.js"></script>
+    <script type="application/javascript" src="list/tagDirective.js"></script>
+    <script type="application/javascript" src="search/SearchCtrl.js"></script>
+    <script type="application/javascript" src="search/searchService.js"></script>
+    <script type="application/javascript" src="list/tagDirective.js"></script>
+
 </body>
 </html>

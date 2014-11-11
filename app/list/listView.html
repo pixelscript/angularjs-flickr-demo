@@ -1,0 +1,13 @@
+<div class="list">
+    <div class="list-item"  ng-repeat="result in results">
+        <div class="preview th" ng-style="{'background-image': 'url(' + result.media.m + ')'}">
+
+        </div>
+        <div class="deets">
+            <h2>{{result.title}}</h2>
+            <div class="tags" tags="{{result.tags}}"></div>
+            <p class="date" ng-bind="result.date_taken | date:'dd/MM/yyyy HH:mm'"></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

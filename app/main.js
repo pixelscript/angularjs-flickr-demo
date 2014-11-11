@@ -1,11 +1,12 @@
-var Flickr = angular.module('FlickrApp', ['ngRoute','ngResource'])
+var Flickr = angular.module('flickrApp', ['ngRoute','ngResource'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/grid', {
-                templateUrl: 'views/grid.html'
+                templateUrl: 'grid/gridView.html',
+                controller:'GridCtrl'
             })
             .when('/list', {
-                templateUrl: 'views/list.html'
+                templateUrl: 'list/listView.html'
             })
             .otherwise({
                 redirectTo: '/grid'
