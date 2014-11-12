@@ -31,23 +31,25 @@
             };
         }
 
+        function tagDirective ($compile) {
+            return {
+                restrict: 'A',
+                scope:{},
+                link: function (scope, element, attrs) {
+                    var tags = attrs.tags.split(' ');
+                    tags.forEach(function(tag){
+                        var e = angular.element('<span class="label">'+tag+'</span>&nbsp;');
+                        element.append(e);
+                    })
+                }
+            }
+        }
+
         angular
             .module('myApp', [])
             .controller('MainCtrl',  ['$scope','ImageService', MainCtrl ])
             .factory('ImageService',  ['$http', ImageService ])
-            .directive('tags', ['$compile', function() {
-                return {
-                    restrict: 'A',
-                    scope:{},
-                    link: function (scope, element, attrs) {
-                        var tags = attrs.tags.split(' ');
-                        tags.forEach(function(tag){
-                            var e = angular.element('<span class="label">'+tag+'</span>&nbsp;');
-                            element.append(e);
-                        })
-                    }
-                }
-            }]);
+            .directive('tags', ['$compile',tagDirective]);
     })();
 </script>
 </body>
