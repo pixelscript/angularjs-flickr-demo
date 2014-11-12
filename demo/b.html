@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>First Steps</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.css' rel='stylesheet'
-          type='text/css'>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.css' rel='stylesheet' type='text/css'>
     <link href='css/basic.css' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="myApp" ng-controller="MainCtrl">
@@ -28,7 +27,7 @@
     angular
         .module('myApp', [])
         .controller('MainCtrl',  ['$scope','MyService',MainCtrl ])
-        .service('MyService',[ MyService])
+        .factory('MyService',[ MyService])
 })();
 </script>
 </body>

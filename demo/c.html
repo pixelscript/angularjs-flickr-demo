@@ -4,42 +4,36 @@
     <meta charset="UTF-8">
     <title>First Steps</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.css' rel='stylesheet'
-          type='text/css'>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.css' rel='stylesheet' type='text/css'>
     <link href='css/basic.css' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="myApp" ng-controller="MainCtrl">
-<h1>Hello {{name}}</h1>
-<label for="name">Name:</label><input id="name" type="text" ng-model="name">
-<button ng-click="name='Button Click!'">Click ME</button>
-<hr />
 <div ng-repeat="pic in pics">
 
-    <img class="th" ng-src="{{pic.imageUrl}}" />
-    {{pic.title}}
+    <img class="th" ng-src="{{pic.imageUrl}}" /> {{pic.title}}
+
 </div>
 <script type="application/javascript" src="../app/bower_components/angular/angular.js"></script>
 <script>
     (function(){
         function MainCtrl ($scope, ImageService) {
-            $name = 'World';
-            $scope.pics = ImageService.getImages();
+            ImageService.getImages().then(function(res){
+                 $scope.pics = res.data;
+            });
         }
 
         function ImageService ($http) {
-            var sv = {};
-            sv.getImages = function() {
-                $http.get('json/demo.json').then(function(resp) {
-                   return resp.data;
-                });
+            return {
+                getImages : function() {
+                    return $http.get('json/demo.json')
+                }
             };
-            return sv;
         }
 
         angular
             .module('myApp', [])
             .controller('MainCtrl',  ['$scope','ImageService', MainCtrl ])
-            .service('ImageService',  ['$http', ImageService ])
+            .factory('ImageService',  ['$http', ImageService ]);
     })();
 </script>
 </body>

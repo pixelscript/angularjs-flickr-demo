@@ -1,4 +1,4 @@
-var Flickr = angular.module('flickrApp', ['ngRoute','ngResource'])
+var Flickr = angular.module('flickrApp', ['ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/grid', {

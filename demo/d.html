@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>First Steps</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.css' rel='stylesheet' type='text/css'>
+    <link href='css/basic.css' rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="myApp" ng-controller="MainCtrl">
+<div ng-repeat="pic in pics">
+
+    <img class="th" ng-src="{{pic.imageUrl}}" />
+    {{pic.title}}
+    <div tags="{{pic.tags}}"></div>
+</div>
+<script type="application/javascript" src="../app/bower_components/angular/angular.js"></script>
+<script>
+    (function(){
+        function MainCtrl ($scope, ImageService) {
+            ImageService.getImages().then(function(res){
+                 $scope.pics = res.data;
+            });
+        }
+
+        function ImageService ($http) {
+            return {
+                getImages : function() {
+                    return $http.get('json/demo.json')
+                }
+            };
+        }
+
+        angular
+            .module('myApp', [])
+            .controller('MainCtrl',  ['$scope','ImageService', MainCtrl ])
+            .factory('ImageService',  ['$http', ImageService ])
+            .directive('tags', ['$compile', function() {
+                return {
+                    restrict: 'A',
+                    scope:{},
+                    link: function (scope, element, attrs) {
+                        var tags = attrs.tags.split(' ');
+                        tags.forEach(function(tag){
+                            var e = angular.element('<span class="label">'+tag+'</span>&nbsp;');
+                            element.append(e);
+                        })
+                    }
+                }
+            }]);
+    })();
+</script>
+</body>
+</html>
