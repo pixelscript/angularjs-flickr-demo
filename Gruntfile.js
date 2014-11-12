@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 
     // Default task.
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('launch', ['open:app','serve']);
+    grunt.registerTask('launch', ['open:app','serve','watch']);
 
 
 };
