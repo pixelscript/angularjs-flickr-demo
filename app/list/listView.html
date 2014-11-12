@@ -5,7 +5,7 @@
         </div>
         <div class="deets">
             <h2>{{result.title}}</h2>
-            <div class="tags" tags="{{result.tags}}"></div>
+            <div class="tags" click-action="setQuery" tags-renderer="result.tags"></div>
             <p class="date" ng-bind="result.date_taken | date:'dd/MM/yyyy HH:mm'"></p>
         </div>
         <div class="clear"></div>

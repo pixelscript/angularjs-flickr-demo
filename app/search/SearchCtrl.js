@@ -1,7 +1,6 @@
 (function () {
 
-
-    var SearchCtrl= function ($scope, $window, SearchService) {
+    var SearchCtrl = function ($scope, $window, SearchService) {
 
         $scope.query = 'ridgeback';
 

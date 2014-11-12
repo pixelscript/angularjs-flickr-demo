@@ -1,4 +1,5 @@
 (function () {
+
     var SearchService = function ($http) {
         var search = {};
         search.query = function (tags) {
@@ -12,13 +13,11 @@
         return search;
     };
 
-
     angular
         .module('flickrApp')
         .factory('SearchService', [
             '$http',
             SearchService
         ]);
-}());
 
-//    return $resource('http://api.flickr.com/services/feeds/photos_public.gne', { format: 'json', jsoncallback: 'JSON_CALLBACK' }, { 'load': { 'method': 'JSONP' } });
+}());
