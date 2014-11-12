@@ -9,14 +9,13 @@
 </head>
 <body ng-app="myApp" ng-controller="MainCtrl">
 <div ng-repeat="pic in pics">
-
-    <img class="th" ng-src="{{pic.imageUrl}}" />
-    {{pic.title}}
+    <img class="th" ng-src="{{pic.imageUrl}}" /> {{pic.title}}
     <div tags="{{pic.tags}}"></div>
 </div>
 <script type="application/javascript" src="../app/bower_components/angular/angular.js"></script>
 <script>
     (function(){
+
         function MainCtrl ($scope, ImageService) {
             ImageService.getImages().then(function(res){
                  $scope.pics = res.data;

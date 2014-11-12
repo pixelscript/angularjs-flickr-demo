@@ -19,6 +19,7 @@
 
     };
 
-    angular.module('flickrApp').controller('SearchCtrl', ['$scope', '$window', 'SearchService', SearchCtrl]);
+    angular.module('flickrApp').
+        controller('SearchCtrl', ['$scope', '$window', 'SearchService', SearchCtrl]);
 
 }());
