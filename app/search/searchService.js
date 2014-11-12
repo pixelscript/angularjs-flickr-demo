@@ -1,5 +1,5 @@
 (function () {
-    var SearchService = function ($http, $q) {
+    var SearchService = function ($http) {
         var search = {};
         search.query = function (tags) {
             var options = {
@@ -17,7 +17,6 @@
         .module('flickrApp')
         .factory('SearchService', [
             '$http',
-            '$q',
             SearchService
         ]);
 }());
